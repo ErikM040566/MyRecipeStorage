@@ -1,0 +1,23 @@
+﻿@model MyRecipeStorage.ViewModels.Search.SearchViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+    
+    //SeMyRecipeStorage.ViewModels.Search.SearchViewModel
+*@
+
+@{
+}
+<h1>Search</h1>
+@if (Model.ListOfRecipes == null)
+{
+    <h2>No reslut</h2>
+}
+else
+{
+  foreach (var r in Model.ListOfRecipes)
+  {
+        <h2>@r.Title</h2>
+  }
+}
+
