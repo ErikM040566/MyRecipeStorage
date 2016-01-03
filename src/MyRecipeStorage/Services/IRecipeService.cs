@@ -7,5 +7,6 @@ namespace MyRecipeStorage.Services
     {
         IEnumerable<RecipeMin> SearchForRecipes(string q, string category);
 
+        Recipe GetRecipe(string id);
     }
 }

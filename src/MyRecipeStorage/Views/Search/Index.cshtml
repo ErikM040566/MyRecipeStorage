@@ -8,16 +8,21 @@
 
 @{
 }
-<h1>Search</h1>
+<h1>Search result</h1>
 @if (Model.ListOfRecipes == null)
 {
-    <h2>No reslut</h2>
+    <h2>No resluts</h2>
 }
 else
 {
-  foreach (var r in Model.ListOfRecipes)
+  foreach (var recipe in Model.ListOfRecipes)
   {
-        <h2>@r.Title</h2>
+
+      <a href="/Recipe/@recipe.RecipeGuid">
+          <h2>@recipe.Title</h2>
+          <h3>@recipe.SubTitle</h3>
+          <h3>@recipe.Difficulty - @recipe.TimeEstimate</h3>
+      </a>
   }
 }
 

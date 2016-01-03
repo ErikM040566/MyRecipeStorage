@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MyRecipeStorage.Models;
 using Newtonsoft.Json;
 
@@ -18,6 +19,17 @@ namespace MyRecipeStorage.Services
         {
             var recipes = JsonConvert.DeserializeObject<List<RecipeMin>>(_recipeJson);
             return recipes;
+        }
+
+        public Recipe GetRecipe(string id)
+        {
+            var recipes = JsonConvert.DeserializeObject<List<Recipe>>(_recipeJson);
+
+
+            var recipe = recipes.SingleOrDefault(o => o.RecipeGuid == id);
+            return recipe;
+
+
         }
     }
 }

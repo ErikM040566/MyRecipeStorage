@@ -19,17 +19,26 @@ namespace MyRecipeStorage.Controllers
 
         public IActionResult Index(string q)
         {
-            var tt = new SearchViewModel();
+            var viewModel = new SearchViewModel();
 
             var searchResult = _recipeService.SearchForRecipes(q, string.Empty);
             if (searchResult != null)
             {
-               tt.ListOfRecipes = searchResult;
+               viewModel.ListOfRecipes = searchResult;
             }
+            return View(viewModel);
+        }
 
+        public IActionResult GetRecipe(string q)
+        {
+            var viewModel = new SearchViewModel();
 
-
-            return View(tt);
+            var searchResult = _recipeService.SearchForRecipes(q, string.Empty);
+            if (searchResult != null)
+            {
+               viewModel.ListOfRecipes = searchResult;
+            }
+            return View(viewModel);
         }
     }
 }
